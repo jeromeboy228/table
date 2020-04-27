@@ -2,15 +2,23 @@
 <html lang="en">
 
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+</script>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="demo.js"></script>
+
+    <style type="text/css">
+    .color_table th, #first_tr { background-color: lightblue; }
+</style>
+    
 </head>
 
 <body>
-    <table border="1px">
+    <table border="1px" class="color_table">
         <tr>
             <td>Номер</td>
             <td>Тип прибора</td>
@@ -50,6 +58,7 @@
                 if (isset($_POST["id$legth_table"]) && $_POST["id$legth_table"]) {
                     $flag = $_POST["check_$legth_table"];
                     printf("<td>$flag</td>");
+                    
                     
                 } else {
                     $flag = 0;
