@@ -57,7 +57,7 @@
                     <td><input type="checkbox" name="id<?php print("$legth_table"); ?>"> Поверенно(поз.<?php print("$legth_table"); ?>)
                         <input type="hidden" name="check_<?php print("$legth_table"); ?>" value="1">
                     </td>
-                    <td> <input type="submit" value="lol">
+                    <td> <input type="submit" value="lol" onClick='history.go(0)'>
                     </td>
 
 
@@ -65,7 +65,9 @@
                 <?php
                 if (isset($_POST["id$legth_table"]) && $_POST["id$legth_table"]) {
                     $flag = $_POST["check_$legth_table"];
-                    $temp = mysqli_query($connect, "UPDATE List2 SET check_=1 WHERE A=$flag");
+                    
+                    $temp = mysqli_query($connect, "UPDATE List2 SET check_=1 WHERE A=$legth_table");
+                     
                     if (!$temp) echo "bad =(";
                     printf("<td>$flag</td>");
                 } else {
