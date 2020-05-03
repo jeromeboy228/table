@@ -8,3 +8,10 @@
 td {
     text-align: center;
 }
+.gradient {
+    background: linear-gradient(to top right,rgb(7, 160, 231),rgb(252, 251, 251));
+}
+table {
+    background-color: white;
+    margin: auto;
+}

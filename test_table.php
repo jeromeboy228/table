@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body class="gradient">
     <table border="1px" class="color_table">
         <tr>
             <td>Номер</td>
