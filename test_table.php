@@ -31,7 +31,7 @@
             <td>Прочее</td>
             <td>Статус поверки</td>
             <td>Stat</td>
-            <td>button</td>
+            <!-- <td>button</td> -->
         </tr>
         <?php
         $legth_table = 0; // длинна таблицы
@@ -45,8 +45,10 @@
         while ($elem = mysqli_fetch_assoc($qresult)) {
             $legth_table++; ?>
             <form name="id<?php print("$legth_table"); ?>" action="test_table.php" method="post">
-                <tr <?php if ($elem["G"] == date("n")) print("class=\"new\"");
+                <tr <?php 
                     if ($elem["check_"] == 1) print("class=\"for_pow\"");
+                    else
+                    if ($elem["G"] == date("n")) print("class=\"new\"");
                     ?>>
                     <td><?php print("{$elem["A"]}") ?></td>
                     <td><?php print("{$elem["B"]}") ?></td>
@@ -69,10 +71,10 @@
                     $temp = mysqli_query($connect, "UPDATE List2 SET check_=1 WHERE A=$legth_table");
                      
                     if (!$temp) echo "bad =(";
-                    printf("<td>$flag</td>");
+                    /* printf("<td>$flag</td>"); */
                 } else {
                     $flag = 0;
-                    printf("<td>$flag</td>");
+                   /*  printf("<td>$flag</td>"); */
                 }
             }
                 ?>
