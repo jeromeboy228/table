@@ -56,10 +56,10 @@
                     <td><?php print("{$elem["D"]}") ?></td>
                     <td><?php print("{$elem["E"]}") ?></td>
                     <td><?php print("{$elem["F"]}") ?></td>
-                    <td><input type="checkbox" name="id<?php print("$legth_table"); ?>"> Поверенно(поз.<?php print("$legth_table"); ?>)
+                    <td><input type="checkbox" name="id<?php print("$legth_table"); ?>" > Поверенно(поз.<?php print("$legth_table"); ?>)
                         <input type="hidden" name="check_<?php print("$legth_table"); ?>" value="1">
                     </td>
-                    <td> <input type="submit" value="lol" onClick='history.go(0)'>
+                    <td> <input type="submit" value="Поверенно" onClick='history.go(0)' >
                     </td>
 
 
