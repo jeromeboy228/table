@@ -17,4 +17,9 @@ $(document).ready(function(){
       $(this).css("background-color",tr_clr)
      else $(this).css("background-color","yellow")
      });
+<<<<<<< HEAD
     });// more new
+=======
+    });
+//new
+>>>>>>> testing

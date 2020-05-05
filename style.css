@@ -1,0 +1,17 @@
+.for_pow {
+    background-color: rgb(138, 138, 224);
+}
+.new {
+
+    background-color: rgb(5, 201, 47);
+}
+td {
+    text-align: center;
+}
+.gradient {
+    background: linear-gradient(to top right,rgb(7, 160, 231),rgb(252, 251, 251));
+}
+table {
+    background-color: white;
+    margin: auto;
+}
