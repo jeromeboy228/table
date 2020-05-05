@@ -44,8 +44,8 @@
         if (!$qresult) die("Ошибка с таблицей");
         while ($elem = mysqli_fetch_assoc($qresult)) {
             $legth_table++; ?>
-            <form name="id<?php print("$legth_table"); ?>" action="test_table.php" method="post">
-                <tr <?php 
+            <form name="id<?php print("$legth_table"); ?>" action="test_table.php" method="POST">
+                <tr <?php
                     if ($elem["check_"] == 1) print("class=\"for_pow\"");
                     else
                     if ($elem["G"] == date("n")) print("class=\"new\"");
@@ -56,10 +56,11 @@
                     <td><?php print("{$elem["D"]}") ?></td>
                     <td><?php print("{$elem["E"]}") ?></td>
                     <td><?php print("{$elem["F"]}") ?></td>
-                    <td><input type="checkbox" name="id<?php print("$legth_table"); ?>" > Поверенно(поз.<?php print("$legth_table"); ?>)
+                    <td><input type="checkbox" name="id<?php print("$legth_table"); ?>"> Поверенно
                         <input type="hidden" name="check_<?php print("$legth_table"); ?>" value="1">
                     </td>
-                    <td> <input type="submit" value="Поверенно" onClick='history.go(0)' >
+                    <td>
+                        <input type="submit" value="lol">
                     </td>
 
 
@@ -67,23 +68,23 @@
                 <?php
                 if (isset($_POST["id$legth_table"]) && $_POST["id$legth_table"]) {
                     $flag = $_POST["check_$legth_table"];
-                    
+
                     $temp = mysqli_query($connect, "UPDATE List2 SET check_=1 WHERE A=$legth_table");
-                     
+
                     if (!$temp) echo "bad =(";
                     /* printf("<td>$flag</td>"); */
                 } else {
                     $flag = 0;
-                   /*  printf("<td>$flag</td>"); */
+                    /*  printf("<td>$flag</td>"); */
                 }
             }
                 ?>
                 </tr>
     </table>
-    <!--     <input type="submit" value="lol">
- -->
-    <?php
+    <!--  <input type="submit" value="lol"> -->
 
+    <?php
+    mysqli_close($connect);
     /* $temp=mysqli_query($connect,"UPDATE List2 SET check_=1 WHERE A=3");
 if(!$temp) die("Проблемы отправки формы"); 
     echo "its all good,check DB";*/
