@@ -40,7 +40,7 @@
         if (!$connect) die("ошибка подключения к БД");
         $select = mysqli_select_db($connect, "test");
         if (!$select) die("ошибка выбора БД");
-        $qresult = mysqli_query($connect, "SELECT *  FROM List2");
+        $qresult = mysqli_query($connect, "SELECT *  FROM Sheet1");
         if (!$qresult) die("Ошибка с таблицей");
         while ($elem = mysqli_fetch_assoc($qresult)) {
             $legth_table++; ?>
