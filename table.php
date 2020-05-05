@@ -27,7 +27,7 @@
         if (!$connect) die("con prob");
         $select = mysqli_select_db($connect, "test");
         if (!$select) die("select prob");
-        $qresult = mysqli_query($connect, "SELECT * FROM List2");
+        $qresult = mysqli_query($connect, "SELECT * FROM Sheet1");
         if (!$qresult) die("qres prob");
         while ($elem = mysqli_fetch_assoc($qresult)) {
             $leignt_table++;
@@ -55,7 +55,7 @@
 
             if (isset($_POST["id$leignt_table"]) && $_POST["id$leignt_table"]) {
                 $flag = $_POST["check_$leignt_table"];
-                $temp = mysqli_query($connect, "UPDATE List2 SET check_=1 WHERE A=$leignt_table");
+                $temp = mysqli_query($connect, "UPDATE Sheet2 SET check_=1 WHERE A=$leignt_table");
                 if (!$temp) die("temp prob");
             } else {
                 $flag = 0;
