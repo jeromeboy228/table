@@ -7,22 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test_table</title>
     <link rel="stylesheet" href="style.css">
     <!--     <script src="demo.js"></script>
  -->
-    <style type="text/css">
-        .color_table th,
-        #first_tr {
-            background-color: lightblue;
-        }
-    </style>
+
 
 </head>
 
 <body class="gradient">
     <table border="1px" class="color_table">
-        <tr>
+        <tr class="main_colom">
             <td>Номер</td>
             <td>Тип прибора</td>
             <td>Марка прибора</td>
@@ -40,7 +35,7 @@
         if (!$connect) die("ошибка подключения к БД");
         $select = mysqli_select_db($connect, "test");
         if (!$select) die("ошибка выбора БД");
-        $qresult = mysqli_query($connect, "SELECT *  FROM Sheet1");
+        $qresult = mysqli_query($connect, "SELECT *  FROM List2");
         if (!$qresult) die("Ошибка с таблицей");
         while ($elem = mysqli_fetch_assoc($qresult)) {
             $legth_table++; ?>
@@ -56,48 +51,26 @@
                     <td><?php print("{$elem["D"]}") ?></td>
                     <td><?php print("{$elem["E"]}") ?></td>
                     <td><?php print("{$elem["F"]}") ?></td>
-                    <td><input type="checkbox" name="id<?php print("$legth_table"); ?>"> Поверенно
-                        <input type="hidden" name="check_<?php print("$legth_table"); ?>" value="1">
-                    </td>
+                    <td><input type="checkbox" name="check<?php print("$legth_table"); ?>"> Поверенно </td>
                     <td>
-                        <input type="submit" value="lol">
+                        <input type="submit" value="Отправить">
                     </td>
 
 
 
                 <?php
+
                 if (isset($_POST["id$legth_table"]) && $_POST["id$legth_table"]) {
-                    $flag = $_POST["check_$legth_table"];
-
                     $temp = mysqli_query($connect, "UPDATE List2 SET check_=1 WHERE A=$legth_table");
-
-                    if (!$temp) echo "bad =(";
-                    /* printf("<td>$flag</td>"); */
-                } else {
-                    $flag = 0;
-                    /*  printf("<td>$flag</td>"); */
                 }
             }
                 ?>
                 </tr>
     </table>
-    <!--  <input type="submit" value="lol"> -->
-
     <?php
     mysqli_close($connect);
-    /* $temp=mysqli_query($connect,"UPDATE List2 SET check_=1 WHERE A=3");
-if(!$temp) die("Проблемы отправки формы"); 
-    echo "its all good,check DB";*/
-
     ?>
-
     </form>
-
 </body>
 
 </html>
-<!-- 
-qresult=mysqli_query($connect,"INSERT  INTO table_work(type_dev,mark_dev,serial_num,mouth,exet)
-    values
-    ('".$type_dev."','".$mark_dev."','".$serial_num."','".$mounth."','".$exet."')
-    "); -->
